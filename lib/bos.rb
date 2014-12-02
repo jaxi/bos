@@ -1,5 +1,5 @@
 require "bos/version"
 
-module Bos
+module BOS
   # Your code goes here...
 end
