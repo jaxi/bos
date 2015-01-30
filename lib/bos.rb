@@ -22,9 +22,8 @@ module BOS
       page = agent.submit(login_form, login_form.buttons.first)
 
       if page.uri.to_s.include? LOGIN_PAGE
-        raise LoginError, "ID OR PASSWORD WRONG"
+        raise LoginError, "ID OR PASSWORD IS WRONG"
       else
-        puts "ID & PASSWORD CORRECT!"
         enter_secure_code(page, security_code)
       end
     end
@@ -49,16 +48,9 @@ module BOS
         .value = "&nbsp;#{number3}"
       main_page = agent.submit(secure_code_form, secure_code_form.buttons.first)
 
-      main_page
-    end
+      raise LoginError, "SECURE CODE IS WRONG" unless /account_overview_personal/.match main_page.uri.to_s
 
-    def secure_number_map(char)
-      case char
-      when "a".."z"
-        ("a".."z").to_a.index(char) + 1
-      when "0".."9"
-        ("0".."9").to_a.index(char) + 27
-      end
+      return main_page
     end
   end
 
