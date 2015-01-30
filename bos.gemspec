@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = BOS::VERSION
   spec.authors       = ["Jingkai He"]
   spec.email         = ["jaxihe@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Bank of Scotland screen scraper}
+  spec.description   = %q{Bank of Scotland screen scraper}
   spec.homepage      = ""
   spec.license       = "MIT"
 
