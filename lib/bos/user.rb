@@ -103,8 +103,9 @@ module BOS
       end
     end
 
-    def query(start_date, end_date)
-
+    # TODO: Implement query search
+    def transaction_query(query, start_date, end_date)
+      raise NoMethodError, "transaction_query method will come soon"
     end
 
     def inspect
