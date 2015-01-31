@@ -49,10 +49,10 @@ module BOS
           description = row.at('td[2]/text()').text.strip
 
           income = row.at('td[3]/text()')
-          income = income ? income.to_f : 0
+          income = income ? income.text.strip.to_f : 0
 
-          outcome = row.at('td[4]/text()').text.strip
-          outcome = outcome ? outcome.to_f : 0
+          outcome = row.at('td[4]/text()')
+          outcome = outcome ? outcome.text.strip.to_f : 0
 
           result << {
             date: date,
@@ -67,7 +67,40 @@ module BOS
     end
 
     def full_statement
+      @full_statement ||= begin
+        rows = full_statement_page.search('//table/tbody/tr')
+        result = []
+        rows.each do |row|
+          date = Date.parse(row.at("th/span/text()"))
+          tds = row.search("td")
 
+          description = tds[0].text.strip
+          type = tds[1].text.strip
+          income = tds[2].text.to_f
+          outcome = tds[3].text.to_f
+          balance = tds[4].text
+
+          result << {
+            date: date,
+            description: description,
+            type: type,
+            income: income,
+            outcome: outcome,
+            balance: balance
+          }
+        end
+
+        result
+      end
+    end
+
+    def full_statement_page
+      @full_statement_page ||= begin
+        full_statement_page_link = mini_statement_page
+          .at("a[id='miniaccountstatements:lkViewFullStatement']")["href"]
+
+        BOS.agent.get(full_statement_page_link)
+      end
     end
 
     def query(start_date, end_date)
