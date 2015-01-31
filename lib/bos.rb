@@ -1,6 +1,8 @@
 require "mechanize"
 require "json"
+
 require "bos/version"
+require "bos/query"
 require "bos/user"
 
 module BOS
