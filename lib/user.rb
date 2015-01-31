@@ -30,6 +30,9 @@ module BOS
       end
     end
 
+    def inspect
+      "#<BOS::User:0x#{(object_id << 1).to_s(16)}>"
+    end
     private
 
     # Private: Login with the user's id and password
