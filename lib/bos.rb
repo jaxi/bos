@@ -1,8 +1,7 @@
-require "bos/version"
 require "mechanize"
-
-require "user"
 require "json"
+require "bos/version"
+require "bos/user"
 
 module BOS
   LOGIN_PAGE = "https://online.bankofscotland.co.uk/personal/logon/login.jsp".freeze
