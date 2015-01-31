@@ -1,6 +1,8 @@
 # BOS
 
-TODO: Write a gem description
+BOS is a ruby client that scrape your banking details from your bank of scotland web page. You are higly under risk (e.g. online bank account get blocked; Either password or security code leaks) when using it. So please do use it responsibly (The author of the gem under any circumstances will not responsible for any lost).
+
+It seems like Lloyds Bank plc, TSB Bank plc, Bank of Scotland plc and Halifax, as all of them belong to Lloyds Banking Group, are sharing the same banking system. As a result, you might be able to migrate the gem to some other banking systems without too much difficulties. Again, please do use it responsibly!
 
 ## Installation
 
@@ -20,7 +22,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+BOS is a screen scraper that collect you your banking details.
+
+If you use it for the first time, then you need do configuration. The code shown below would store your banking details into ~/.bos file and persit in JSON format.
+
+```ruby
+BOS.confg USER_ID, PASSWORD, SECURITY_CODE
+```
+
+The code snippet below show the basic usage of BOS gem (very easy to understand, isn't it?)
+
+```ruby
+client = BOS.client # Return a bos client.
+
+client.balance
+client.account_number
+client.sort_code
+client.mini_statement
+client.full_statement
+```
+
 
 ## Contributing
 
