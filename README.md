@@ -1,6 +1,6 @@
 # BOS
 
-BOS is a ruby client that scrape your banking details from your bank of scotland web page. You are higly under risk (e.g. online bank account get blocked; Either password or security code leaks) when using it. So please do use it responsibly (The author of the gem under any circumstances will not responsible for any lost).
+BOS is a ruby client that scrape your banking details from your bank of scotland web page. You are higly under risk (e.g. online bank account get blocked; Either password or security code leaks) when using it. So please do use it responsibly (The author of the gem under any circumstances will not responsible for any lost ```BOS``` causes).
 
 It seems like Lloyds Bank plc, TSB Bank plc, Bank of Scotland plc and Halifax, as all of them belong to Lloyds Banking Group, are sharing the same banking system. As a result, you might be able to migrate the gem to some other banking systems without too much difficulties. Again, please do use it responsibly!
 
